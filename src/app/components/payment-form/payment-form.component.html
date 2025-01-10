@@ -1,0 +1,37 @@
+<div class="payment-form">
+    <h2>Realizar un Pago</h2>
+    <form (ngSubmit)="handlePayment()">
+      <div class="p-field">
+        <label for="amount">Monto</label>
+        <input
+          pInputText
+          type="number"
+          id="amount"
+          [(ngModel)]="amount"
+          name="amount"
+          placeholder="Ingrese el monto"
+          required
+        />
+      </div>
+  
+      <div class="p-field">
+        <label for="paymentMethod">Método de Pago</label>
+        <p-dropdown
+          [options]="paymentMethods"
+          [(ngModel)]="paymentMethod"
+          name="paymentMethod"
+          placeholder="Seleccione un método"
+          required
+        ></p-dropdown>
+      </div>
+  
+      <button
+        pButton
+        type="submit"
+        label="Pagar"
+        class="p-mt-3"
+        [disabled]="!amount || !paymentMethod"
+      ></button>
+    </form>
+  </div>
+  
